@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="reset.css">-->
+    <link rel = "icon" href="static/RetConLogo.ico"/><title>Retias Cadastre Solution</title>
+  <style>
+    .footer {
+      overflow: hidden;
+      background: linear-gradient(to right, #33ccff 0%, #009900 100%);
+      position: fixed;
+      bottom: 0;
+      padding-right: 14px;
+      padding-left: 14px;
+      padding-top: 10px;
+      width: 100%;
+    }
+    /* Column container */
+    .row {
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+    }
+
+    .side {
+      -ms-flex: 20%; /* IE10 */
+      flex: 20%;
+      background-color: white;
+      height: 100%;
+      padding-top:5px;
+    }
+
+    /* Main column */
+    .main {
+      -ms-flex: 80%; /* IE10 */
+      flex: 80%;
+      background-color: white;
+      height: 830px;
+      padding-top:0px;
+      padding-right:16px;
+      padding-left:16px;
+    }
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+  </style>
+
+  </head>
+  <body>
+  <!--NavBar-->
+  {% load static %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top" id = "myHeader" style="background: linear-gradient(to left, #33ccff 0%, #009900 100%)">
+          <a class="navbar-brand" href="{% url 'index' %}"><img src='{% static "RetConLogo.png"%}' height = "50px"/></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" style = "font-family:'Verdana'; font-weight: bolder; font-size: large" href="{% url 'index' %}">Zimbabwe Mining Cadastre <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
+      </nav>
+  <!--EndNavBar-->
+  <!--Container for Map-->
+    <div class = "row" style = "height:800px">
+       <!--<div class="side">
+            <h1>Hi there</h1>
+        </div>-->
+        <div class = "main">
+          {{m|safe}}
+        </div>
+    </div>
+
+  <!--End Container for Map-->
+
+  <!--Footer-->
+      <div class ="footer" style = "height: 60px; color: white; "></div>
+  <!--End Footer-->
+
+  <script>
+    window.onscroll = function() {myFunction()};
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+      if (window.scrollY > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+    </script>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  </body>
+</html>
